@@ -24,6 +24,10 @@ func NewDockerContainerService() (*DockerContainerService, error) {
 	return &DockerContainerService{client: client}, nil
 }
 
+func NewDockerContainerServiceWithClient(client *docker.Client) *DockerContainerService {
+	return &DockerContainerService{client: client}
+}
+
 func (d *DockerContainerService) GetContainers() ([]models.Container, error) {
 	containers, err := d.client.ListContainers(docker.ListContainersOptions{All: true})
 	if err != nil {

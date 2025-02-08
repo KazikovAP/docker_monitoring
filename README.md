@@ -65,7 +65,6 @@ docker-compose down
 ## Примеры запросов к API
 ### Получение списка пингов
 Пример GET запроса на адрес: `http://localhost:8080/pings`
-Response:
 ```JSON
 [
   {
@@ -107,7 +106,6 @@ Response:
 
 ### Примеры ответов при ошибках
 Неверный формат IP-адреса (HTTP 400 Bad Request):
-Response:
 ```JSON
 {
   "error": "Invalid IP address"
@@ -115,7 +113,6 @@ Response:
 ```
 
 Пинг с таким IP-адресом уже существует (HTTP 409 Conflict):
-Response:
 ```JSON
 {
   "error": "IP address 192.168.1.102 already exists"
@@ -123,7 +120,6 @@ Response:
 ```
 
 Ошибка валидации JSON (HTTP 400 Bad Request):
-Response:
 ```JSON
 {
   "error": "Key: 'Ping.IPAddress' Error:Field validation for 'IPAddress' failed on the 'required' tag"

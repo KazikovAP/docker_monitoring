@@ -1,3 +1,5 @@
+// ! Удалить
+
 # Сборка образа
 из главной директории
 docker build -t pinger-service -f pinger/Dockerfile .
