@@ -7,7 +7,6 @@ COPY frontend/package.json frontend/package-lock.json ./
 RUN npm install
 
 COPY frontend ./
-# ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build
 
 FROM nginx:alpine
