@@ -15,23 +15,23 @@
 
 ---
 ## Компоненты системы
-**1. Backend-сервис:**
+1. Backend-сервис:
     - Разработан с использованием языка Go.
     - Обеспечивает RESTful API для взаимодействия с фронтендом и базы данных.
     - API позволяет запросить данные о текущем состоянии контейнеров, а также добавлять новые записи о пингах в базу данных.
 
-**2. Frontend-сервис:**
+2. Frontend-сервис:
     - Разработан с использованием TypeScript и фреймворка React.
     - Получает данные о контейнерах через API Backend.
     - Отображает информацию о каждом контейнере в виде таблицы, включая IP-адрес, время последнего пинга и дату последней успешной попытки.
     - Для отображения данных используется библиотека для UI-компонентов Ant Design (antd).
 
-**3. Сервис Pinger:**
+3. Сервис Pinger:
     - Разработан на Go.
     - Получает список всех Docker-контейнеров.
     - Периодически пингует контейнеры и отправляет данные о результатах пинга в базу данных через API Backend.
 
-**4. База данных PostgreSQL:**
+4. База данных PostgreSQL:
     - Хранит данные о контейнерах, таких как IP-адреса, время пинга, статус контейнера, и дату последней успешной попытки пинга.
     - Обеспечивает доступ к данным через Backend-сервис.
 
@@ -64,9 +64,8 @@ docker-compose down
 
 ## Примеры запросов к API
 ### Получение списка пингов
-**Пример GET запроса на адрес** `http://localhost:8080/pings`:
-
-**Response:**
+Пример GET запроса на адрес: `http://localhost:8080/pings`
+Response:
 ```JSON
 [
   {
@@ -89,7 +88,7 @@ docker-compose down
 ```
 
 ### Добавление нового пинга
-**Пример POST запроса на адрес с параметрами:**
+Пример POST запроса на адрес с параметрами:
 ```
 http://localhost:8080/pings \
   -H "Content-Type: application/json" \
@@ -99,8 +98,7 @@ http://localhost:8080/pings \
         "last_success_date": "2025-02-08T12:36:00Z"
       }'
 ```
-
-**Response:**
+Response:
 ```JSON
 {
   "message": "Ping added successfully"
@@ -108,24 +106,24 @@ http://localhost:8080/pings \
 ```
 
 ### Примеры ответов при ошибках
-**Неверный формат IP-адреса (HTTP 400 Bad Request):**
-**Response:**
+Неверный формат IP-адреса (HTTP 400 Bad Request):
+Response:
 ```JSON
 {
   "error": "Invalid IP address"
 }
 ```
 
-**Пинг с таким IP-адресом уже существует (HTTP 409 Conflict):**
-**Response:**
+Пинг с таким IP-адресом уже существует (HTTP 409 Conflict):
+Response:
 ```JSON
 {
   "error": "IP address 192.168.1.102 already exists"
 }
 ```
 
-**Ошибка валидации JSON (HTTP 400 Bad Request):**
-**Response:**
+Ошибка валидации JSON (HTTP 400 Bad Request):
+Response:
 ```JSON
 {
   "error": "Key: 'Ping.IPAddress' Error:Field validation for 'IPAddress' failed on the 'required' tag"
