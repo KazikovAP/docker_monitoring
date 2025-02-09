@@ -1,6 +1,7 @@
 package repository_test
 
 import (
+	"fmt"
 	"testing"
 	"time"
 
@@ -16,6 +17,8 @@ func getTestDB(t *testing.T) *gorm.DB {
 	if err != nil {
 		t.Fatalf("failed to open in-memory sqlite db: %v", err)
 	}
+
+	db.Exec("DELETE FROM pings")
 
 	return db
 }
@@ -46,13 +49,13 @@ func TestPingRepository_GetAllPings(t *testing.T) {
 
 	pings := []model.Ping{
 		{
-			IPAddress:       "127.0.0.1",
+			IPAddress:       fmt.Sprintf("127.0.0.%d", time.Now().UnixNano()),
 			PingTime:        100,
 			LastSuccessDate: time.Now(),
 			CreatedAt:       time.Now(),
 		},
 		{
-			IPAddress:       "10.0.0.2",
+			IPAddress:       fmt.Sprintf("10.0.0.%d", time.Now().UnixNano()),
 			PingTime:        200,
 			LastSuccessDate: time.Now(),
 			CreatedAt:       time.Now(),
