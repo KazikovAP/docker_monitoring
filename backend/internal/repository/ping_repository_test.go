@@ -52,7 +52,7 @@ func TestPingRepository_GetAllPings(t *testing.T) {
 			CreatedAt:       time.Now(),
 		},
 		{
-			IPAddress:       "192.168.0.1",
+			IPAddress:       "10.0.0.2",
 			PingTime:        200,
 			LastSuccessDate: time.Now(),
 			CreatedAt:       time.Now(),
