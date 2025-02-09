@@ -16,6 +16,8 @@ WORKDIR /root/
 
 COPY --from=builder /app/pinger /usr/local/bin/pinger
 
+RUN chmod +x /usr/local/bin/pinger
+
 EXPOSE 8080
 
 CMD ["pinger"]

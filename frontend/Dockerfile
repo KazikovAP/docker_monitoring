@@ -1,4 +1,3 @@
-# Используем официальный Node.js образ
 FROM node:16-alpine as build
 
 WORKDIR /app

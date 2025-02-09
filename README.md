@@ -70,18 +70,26 @@ docker-compose down
   {
     "id": 1,
     "ip_address": "192.168.1.100",
-    "ping_time": 120,
-    "last_success_date": "2025-02-08T12:34:56Z",
-    "created_at": "2025-02-08T12:34:56Z",
-    "updated_at": "2025-02-08T12:34:56Z"
+    "ping_time": 24,
+    "last_success_date": "2025-02-07T11:34:56Z",
+    "created_at": "2025-02-07T11:34:56Z",
+    "updated_at": "2025-02-07T11:34:56Z"
   },
   {
     "id": 2,
     "ip_address": "192.168.1.101",
-    "ping_time": 140,
-    "last_success_date": "2025-02-08T12:35:00Z",
-    "created_at": "2025-02-08T12:35:00Z",
-    "updated_at": "2025-02-08T12:35:00Z"
+    "ping_time": 30,
+    "last_success_date": "2025-02-08T12:35:02Z",
+    "created_at": "2025-02-08T12:35:02Z",
+    "updated_at": "2025-02-08T12:35:02Z"
+  }
+  {
+    "id": 3,
+    "ip_address": "192.168.1.101",
+    "ping_time": 28,
+    "last_success_date": "2025-02-08T16:44:29Z",
+    "created_at": "2025-02-08T16:44:29Z",
+    "updated_at": "2025-02-08T16:44:29Z"
   }
 ]
 ```
@@ -94,7 +102,7 @@ http://localhost:8080/pings \
   -d '{
         "ip_address": "192.168.1.102",
         "ping_time": 150,
-        "last_success_date": "2025-02-08T12:36:00Z"
+        "last_success_date": "2025-02-08T12:35:02Z"
       }'
 ```
 Response:

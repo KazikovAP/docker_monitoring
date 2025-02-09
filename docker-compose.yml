@@ -14,8 +14,8 @@ services:
 
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: backend/Dockerfile
     environment:
       DB_HOST: postgres
       DB_PORT: 5432
@@ -32,8 +32,8 @@ services:
 
   pinger:
     build:
-      context: ./pinger
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./pinger/Dockerfile
     environment:
       BACKEND_URL: http://backend:8080
     depends_on:
@@ -43,8 +43,8 @@ services:
 
   frontend:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./frontend/Dockerfile
     ports:
       - "3000:3000"
     environment:
